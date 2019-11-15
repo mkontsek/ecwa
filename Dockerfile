@@ -4,8 +4,9 @@ ADD requirements.txt /requirements.txt
 ADD src /src
 ADD utils /utils
 
-RUN pip install -r requirements.txt
+RUN python -m pip install -r requirements.txt
+RUN python /utils/fetchWorldbankData.py
 
 EXPOSE 8000
 
-CMD [ "python", "-m", "src.index" ]
+CMD [ "python", "-m", "src.index", "-p 8000" ]
