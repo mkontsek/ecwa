@@ -6,7 +6,7 @@
 and extract the latest CSV data into `utils/data/population.csv`
 - Remove header row like in the current version `utils/data/population.csv` in the repo
 - Run `python utils/fetchWorldbankData.py`
-- Run `python src/serve.py` in the project directory
+- Run `python -m src.index` in the project directory
 
 ### Summary
 
