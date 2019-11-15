@@ -1,6 +1,14 @@
 # Electricity Consumption Web Application
 
-#### Summary
+### How to execute
+
+- Go to [Worldbank API - Population Total](http://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?format=csv)
+and extract the latest CSV data into `utils/data/population.csv`
+- Remove header row like in the current version `utils/data/population.csv` in the repo
+- Run `python utils/fetchWorldbankData.py`
+- Run `python src/serve.py` in the project directory
+
+### Summary
 
 This task is designet to be fun ( i hope ), educational and help ussess few areas of engineeting. I do understand that people are busy and that's why I will leave it to you how much you want to work on it before you will send task. I am also open for alterations if you will find something that you would like to play around - but in this case please come back to me and ask. 
 
@@ -36,4 +44,4 @@ C) Dockerise APP
 
 [Worldbank API - Electricity consumption](https://api.worldbank.org/v2/country/all/indicator/1.1_TOTAL.FINAL.ENERGY.CONSUM?format=json)
 
-[Worldbank API - Population Total](http://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?downloadformat=csv)
+[Worldbank API - Population Total](http://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?format=csv)

@@ -1,0 +1,6 @@
+.idea/
+.tox/
+frontend/node_modules
+__pycache__
+
+*.iml
