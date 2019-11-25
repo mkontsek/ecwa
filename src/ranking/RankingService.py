@@ -7,6 +7,20 @@ def isSameCountry(ranking):
     return lambda x: ranking['countryCode'] == x['countryCode']
 
 
+def addUniqueCountry(acc, country):
+    isUniqueCountry = True
+    for i in range(len(acc)):
+        if country['countryCode'] == acc[i]['countryCode']:
+            isUniqueCountry = False
+    if isUniqueCountry:
+        acc.append(country)
+    return acc
+
+
+def uniqCountry(countries):
+    return functools.reduce(addUniqueCountry, countries, [])
+
+
 def appendCountryData(countries):
     def function(acc, ranking):
         sameCountries = list(filter(isSameCountry(ranking), countries))
@@ -26,15 +40,15 @@ def applyCountryData(countries, rankings):
 
 
 def getTop10Access(data):
-    return sorted(data, key=lambda x: x['electricityAccessPercentage'], reverse=True)[:10]
+    return sorted(uniqCountry(data), key=lambda x: x['electricityAccessPercentage'], reverse=True)[:11]
 
 
 def getTop10Consumption(data):
-    return sorted(data, key=lambda x: x['perCapita'], reverse=True)[:10]
+    return sorted(uniqCountry(data), key=lambda x: x['perCapita'], reverse=True)[:10]
 
 
 def getBottom10Access(data):
-    return sorted(data, key=lambda x: x['electricityAccessPercentage'])[:10]
+    return sorted(uniqCountry(data), key=lambda x: x['electricityAccessPercentage'])[:10]
 
 
 def getYourCountryData(countryCode, statistics):
