@@ -13,9 +13,16 @@ def processRoute(path: str) -> str:
     return showRankings(country)
 
 
+def allowCors(handler):
+    handler.send_header('Access-Control-Allow-Origin', '*')
+    handler.send_header('Access-Control-Allow-Methods', 'GET')
+
+
 class RouteHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        allowCors(self)
         self.end_headers()
 
         result = processRoute(self.path)
