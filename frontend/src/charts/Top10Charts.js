@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-function renderAccesItem(obj) {
+function renderAccessItem(obj) {
     return <ListItemText>{`${obj.iso2Code} - ${obj.electricityAccessPercentage}% of the population has access to electricity.`}</ListItemText>
 }
 
@@ -21,7 +21,7 @@ function renderTop10Access(data) {
     const top10access = data['top10access'];
 
     return top10access.reduce((acc, obj) => {
-        acc.push(renderAccesItem(obj));
+        acc.push(renderAccessItem(obj));
         return acc;
     }, []);
 }
@@ -30,7 +30,7 @@ function renderBottom10Access(data) {
     const bottom10access = data['bottom10access'];
 
     return bottom10access.reduce((acc, obj) => {
-        acc.push(renderAccesItem(obj));
+        acc.push(renderAccessItem(obj));
         return acc;
     }, []);
 }
